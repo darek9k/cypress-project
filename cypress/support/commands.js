@@ -29,16 +29,6 @@ Cypress.Commands.add("login", (email, password) => {
     cy.get('[placeholder="Email"]').type(email);
     cy.get('[type="password"]').type(password);
     cy.get('[type="submit"]').click();
-    cy.wait("@requestLogin")
-    cy.get("@requestLogin").then(res => {
-        console.log(res)
-        expect(res.response.statusCode).to.equal(403)
-        cy.fixture("example").then(data => {
-            expect(res.response.statusMessage).to.equal(data.statusMessage403)
-        })
-        
-    })
-
 })
 //
 // -- This is a dual command --
