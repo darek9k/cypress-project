@@ -18,6 +18,12 @@ import 'cypress-file-upload';
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
 //
+Cypress.Commands.add("openWomenTab", () => {
+    cy.visit("https://magento.softwaretestingboard.com/women.html")
+})
+Cypress.Commands.add("searchPhrase", (text, delayValue) => {
+    cy.get("#search").type( text, {delay: delayValue});
+})
 //
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
