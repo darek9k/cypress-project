@@ -24,6 +24,22 @@ Cypress.Commands.add("openWomenTab", () => {
 Cypress.Commands.add("searchPhrase", (text, delayValue) => {
     cy.get("#search").type( text, {delay: delayValue});
 })
+Cypress.Commands.add("login", (email, password) => {
+    cy.intercept("POST","https://api.realworld.io/api/users/login").as("requestLogin")
+    cy.get('[placeholder="Email"]').type(email);
+    cy.get('[type="password"]').type(password);
+    cy.get('[type="submit"]').click();
+    cy.wait("@requestLogin")
+    cy.get("@requestLogin").then(res => {
+        console.log(res)
+        expect(res.response.statusCode).to.equal(403)
+        cy.fixture("example").then(data => {
+            expect(res.response.statusMessage).to.equal(data.statusMessage403)
+        })
+        
+    })
+
+})
 //
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
