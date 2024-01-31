@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2024-01-31T13:21:30.049Z",
+    "end": "2024-01-31T13:21:35.798Z",
+    "duration": 5749
+  },
+  "results": [
+    {
+      "uuid": "86c3fd79-0b42-4b2f-a269-e370c370ee20",
+      "title": "",
+      "fullFile": "cypress/integration/click.js",
+      "file": "cypress/integration/click.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "49d0629f-9af9-417c-bbe6-b632655c5489",
+          "title": "E2E - Click actions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Click on element",
+              "fullTitle": "E2E - Click actions Click on element",
+              "timedOut": null,
+              "duration": 5739,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/\");\ncy.get(\"#ui-id-8\").click();\ncy.get('[class=\"logo\"]').click();",
+              "err": {},
+              "uuid": "48ba1a61-503a-4754-b7dc-ef9dc9dd927b",
+              "parentUUID": "49d0629f-9af9-417c-bbe6-b632655c5489",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "48ba1a61-503a-4754-b7dc-ef9dc9dd927b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5739,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
