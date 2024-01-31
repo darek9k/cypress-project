@@ -26,8 +26,17 @@ describe("E2E - API Tests", () => {
         console.log(res)
         expect(res.response.statusCode).to.equal(403)
         expect(res.response.statusMessage).to.equal(this.daneApi.statusMessage403)
-        
+        })
+    })
+    it("Correct login", function() {
+        cy.intercept("GET","https://api.realworld.io/api/tags", { fixture: 'tags.json' }).as("requestTag");
+        cy.get("a.nav-link").contains("Sign in").click();
+        cy.login("hiperdazio@gmail.com", "123gtbmw");
+        cy.wait("@requestTag")
+        cy.get("@requestTag").then(res => {
+            expect(res.response.body.tags).to.contain("cars").and.to.contain("trucks")
+        })
         
     })
-    })
+
 })

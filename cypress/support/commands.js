@@ -26,6 +26,8 @@ Cypress.Commands.add("searchPhrase", (text, delayValue) => {
 })
 Cypress.Commands.add("login", (email, password) => {
     cy.intercept("POST","https://api.realworld.io/api/users/login").as("requestLogin")
+    cy.get('[placeholder="Email"]').clear();
+    cy.get('[type="password"]').clear();
     cy.get('[placeholder="Email"]').type(email);
     cy.get('[type="password"]').type(password);
     cy.get('[type="submit"]').click();
