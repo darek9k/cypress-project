@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-01-31T18:27:48.829Z",
+    "end": "2024-01-31T18:27:57.109Z",
+    "duration": 8280,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "945aa026-b3e2-419a-935b-ec985baf173e",
+      "title": "",
+      "fullFile": "cypress/integration/api/firstTestAPI.js",
+      "file": "cypress/integration/api/firstTestAPI.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "954c37c1-45e2-41c2-ac5d-c544059a6fc5",
+          "title": "E2E - API Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Tag verification",
+              "fullTitle": "E2E - API Tests Tag verification",
+              "timedOut": null,
+              "duration": 2574,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept(\"GET\", \"https://api.realworld.io/api/tags\").as(\"requestTag\");\ncy.visit(\"https://angularjs.realworld.io/\");\ncy.wait(\"@requestTag\");\ncy.get(\"@requestTag\").then(res => {\n  console.log(res);\n  expect(res.response.statusCode).to.equal(200);\n  expect(res.response.body.tags).to.contain(\"exercitationem\").and.to.contain(\"consequatur\");\n});",
+              "err": {},
+              "uuid": "949edfa8-8967-4ba4-920c-7830e834103b",
+              "parentUUID": "954c37c1-45e2-41c2-ac5d-c544059a6fc5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Incorrect login",
+              "fullTitle": "E2E - API Tests Incorrect login",
+              "timedOut": null,
+              "duration": 1405,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"a.nav-link\").contains(\"Sign in\").click();\ncy.login(\"absd@efgh.ijk\", \"1234\");\ncy.wait(\"@requestLogin\");\ncy.get(\"@requestLogin\").then(res => {\n  console.log(res);\n  expect(res.response.statusCode).to.equal(403);\n  expect(res.response.statusMessage).to.equal(this.daneApi.statusMessage403);\n});",
+              "err": {},
+              "uuid": "3a690d69-94c6-4924-9980-c34692b353c4",
+              "parentUUID": "954c37c1-45e2-41c2-ac5d-c544059a6fc5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Correct login",
+              "fullTitle": "E2E - API Tests Correct login",
+              "timedOut": null,
+              "duration": 1611,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept(\"GET\", \"https://api.realworld.io/api/tags\", {\n  fixture: 'tags.json'\n}).as(\"requestTag\");\ncy.get(\"a.nav-link\").contains(\"Sign in\").click();\ncy.login(\"hiperdazio@gmail.com\", \"123gtbmw\");\ncy.wait(\"@requestTag\");\ncy.get(\"@requestTag\").then(res => {\n  expect(res.response.body.tags).to.contain(\"cars\").and.to.contain(\"trucks\");\n});",
+              "err": {},
+              "uuid": "3210c179-af24-4c64-b93e-e52cdd78b4a1",
+              "parentUUID": "954c37c1-45e2-41c2-ac5d-c544059a6fc5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "949edfa8-8967-4ba4-920c-7830e834103b",
+            "3a690d69-94c6-4924-9980-c34692b353c4",
+            "3210c179-af24-4c64-b93e-e52cdd78b4a1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5590,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

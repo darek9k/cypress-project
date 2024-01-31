@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-01-31T18:28:00.274Z",
+    "end": "2024-01-31T18:28:01.192Z",
+    "duration": 918,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a1b69387-e6a2-4f50-a7b2-788fdd2e57a6",
+      "title": "",
+      "fullFile": "cypress/integration/api/secondAPITest.js",
+      "file": "cypress/integration/api/secondAPITest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e45e7e44-7c8b-4efa-aade-294f7260c8eb",
+          "title": "Querying directly to the API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Authorization and adding a new entry",
+              "fullTitle": "Querying directly to the API Authorization and adding a new entry",
+              "timedOut": null,
+              "duration": 860,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const authorizationData = {\n  \"user\": {\n    \"email\": \"dariusz-kowalski@test.pl\",\n    \"password\": \"dariuszkowalski123qwe\"\n  }\n};\nconst articleData = {\n  \"article\": {\n    \"taglist\": [],\n    \"title\": \"testowanienaekranie2\",\n    \"description\": \"test\",\n    \"body\": \"test\"\n  }\n};\ncy.request(\"POST\", \"https://api.realworld.io/api/users/login\", authorizationData).its(\"body\").then(res => {\n  const authToken = res.user.token;\n  cy.request({\n    method: \"POST\",\n    url: \"https://api.realworld.io/api/articles/\",\n    body: articleData,\n    headers: {\n      'Authorization': 'Token ' + authToken\n    }\n  }).then(res => {\n    expect(res.status).to.equal(201);\n  });\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://api.realworld.io/api/articles/\n\nThe response we received from your web server was:\n\n  > 422: Unprocessable Entity\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://api.realworld.io/api/articles/\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3MTM2fSwiaWF0IjoxNzA2NzI1NjgyLCJleHAiOjE3MTE5MDk2ODJ9.R-xokYyIkBh8cVYWhe5Egu5WQYYqKKLuJPxUfaRUgiA\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/9.5.1 Chrome/94.0.4606.81 Electron/15.3.4 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 92\n}\nBody: {\"article\":{\"taglist\":[],\"title\":\"testowanienaekranie2\",\"description\":\"test\",\"body\":\"test\"}}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 422 - Unprocessable Entity\nHeaders: {\n  \"date\": \"Wed, 31 Jan 2024 18:28:02 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"39\",\n  \"connection\": \"keep-alive\",\n  \"report-to\": \"{\\\"group\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://nel.heroku.com/reports?ts=1706725682&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=4gtcpoc9cyWnawMb5HcaCWgrRu7C6vwrvKVOrZ6h0fc%3D\\\"}]}\",\n  \"reporting-endpoints\": \"heroku-nel=https://nel.heroku.com/reports?ts=1706725682&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=4gtcpoc9cyWnawMb5HcaCWgrRu7C6vwrvKVOrZ6h0fc%3D\",\n  \"nel\": \"{\\\"report_to\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"success_fraction\\\":0.005,\\\"failure_fraction\\\":0.05,\\\"response_headers\\\":[\\\"Via\\\"]}\",\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"etag\": \"W/\\\"27-BNeuaWQ7DHvW/r+pl+qdJiF06Is\\\"\",\n  \"via\": \"1.1 vegur\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"84e4031aae4935b2-WAW\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: {\n  \"errors\": {\n    \"title\": [\n      \"must be unique\"\n    ]\n  }\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://api.realworld.io/api/articles/\n\nThe response we received from your web server was:\n\n  > 422: Unprocessable Entity\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://api.realworld.io/api/articles/\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3MTM2fSwiaWF0IjoxNzA2NzI1NjgyLCJleHAiOjE3MTE5MDk2ODJ9.R-xokYyIkBh8cVYWhe5Egu5WQYYqKKLuJPxUfaRUgiA\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/9.5.1 Chrome/94.0.4606.81 Electron/15.3.4 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 92\n}\nBody: {\"article\":{\"taglist\":[],\"title\":\"testowanienaekranie2\",\"description\":\"test\",\"body\":\"test\"}}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 422 - Unprocessable Entity\nHeaders: {\n  \"date\": \"Wed, 31 Jan 2024 18:28:02 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"39\",\n  \"connection\": \"keep-alive\",\n  \"report-to\": \"{\\\"group\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://nel.heroku.com/reports?ts=1706725682&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=4gtcpoc9cyWnawMb5HcaCWgrRu7C6vwrvKVOrZ6h0fc%3D\\\"}]}\",\n  \"reporting-endpoints\": \"heroku-nel=https://nel.heroku.com/reports?ts=1706725682&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=4gtcpoc9cyWnawMb5HcaCWgrRu7C6vwrvKVOrZ6h0fc%3D\",\n  \"nel\": \"{\\\"report_to\\\":\\\"heroku-nel\\\",\\\"max_age\\\":3600,\\\"success_fraction\\\":0.005,\\\"failure_fraction\\\":0.05,\\\"response_headers\\\":[\\\"Via\\\"]}\",\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"etag\": \"W/\\\"27-BNeuaWQ7DHvW/r+pl+qdJiF06Is\\\"\",\n  \"via\": \"1.1 vegur\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"84e4031aae4935b2-WAW\",\n  \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"\n}\nBody: {\n  \"errors\": {\n    \"title\": [\n      \"must be unique\"\n    ]\n  }\n}\n\n\nhttps://on.cypress.io/request\n    at https://magento.softwaretestingboard.com/__cypress/runner/cypress_runner.js:160634:80\n    at tryCatcher (https://magento.softwaretestingboard.com/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (https://magento.softwaretestingboard.com/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (https://magento.softwaretestingboard.com/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (https://magento.softwaretestingboard.com/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (https://magento.softwaretestingboard.com/__cypress/runner/cypress_runner.js:11139:18)\n    at _drainQueueStep (https://magento.softwaretestingboard.com/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (https://magento.softwaretestingboard.com/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://magento.softwaretestingboard.com/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (https://magento.softwaretestingboard.com/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Context.eval (https://magento.softwaretestingboard.com/__cypress/tests?p=cypress\\integration\\api\\secondAPITest.js:123:10)",
+                "diff": null
+              },
+              "uuid": "0ddf0f22-2374-4330-b56f-f09d4500311e",
+              "parentUUID": "e45e7e44-7c8b-4efa-aade-294f7260c8eb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "0ddf0f22-2374-4330-b56f-f09d4500311e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 860,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

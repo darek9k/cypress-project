@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-01-31T18:28:05.052Z",
+    "end": "2024-01-31T18:28:08.461Z",
+    "duration": 3409,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f086bb19-8587-4321-8a52-12338a705b07",
+      "title": "",
+      "fullFile": "cypress/integration/assertions.js",
+      "file": "cypress/integration/assertions.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ffb94715-1540-4caa-a891-5da24dd3d20b",
+          "title": "E2E - Assertions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Assertions expect and should",
+              "fullTitle": "E2E - Assertions Assertions expect and should",
+              "timedOut": null,
+              "duration": 3312,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"/\"); //Text verification\ncy.get(\"#ui-id-3 span\").should(\"contain\", \"What's New\");\ncy.get(\"#ui-id-3 span\").then(tab => {\n  expect(tab).to.contain(\"What's\");\n}); //Does not contain\ncy.get(\"#ui-id-3 span\").should(\"not.contain\", \"blablas\");\ncy.get(\"#ui-id-3 span\").then(tab => {\n  expect(tab).not.to.contain(\"blablas\");\n}); //Whether the tag has a class\ncy.get(\"#search\").should(\"have.class\", \"input-text\");\ncy.get(\"#search\").then(search => {\n  expect(search).to.have.class(\"input-text\");\n}); //Is it visible?\ncy.get(\"#search\").should(\"be.visible\");\ncy.get(\"#search\").then(search => {\n  expect(search).to.be.visible;\n}); //Verification of the number of elements\ncy.get(\"ul.ui-menu\").find(\"li\").should(\"have.length\", 26);\ncy.get(\"ul.ui-menu\").find(\"li\").then(tabs => {\n  expect(tabs).to.have.length(26);\n}); //Verification of the css value of a given element\ncy.get(\"#search\").should(\"have.css\", \"height\", \"32px\");\ncy.get(\"#search\").then(search => {\n  expect(search).to.have.css(\"height\", \"32px\");\n});",
+              "err": {},
+              "uuid": "13ac21b4-41b7-4a19-a58e-ad3cef857cbd",
+              "parentUUID": "ffb94715-1540-4caa-a891-5da24dd3d20b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "13ac21b4-41b7-4a19-a58e-ad3cef857cbd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3312,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

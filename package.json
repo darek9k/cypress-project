@@ -13,9 +13,9 @@
     "browser": "npm run spec -- --browser edge & npm run spec -- --browser chrome",
     "delete:reports": "rm -r cypress/results/* || true",
     "prereport": "npm run delete:reports",
-    "mochawesome:merge":"npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json",
-    "mochawesome:html":"npx marge mochawesome.json",
-    "full:test":"npm run delete:reports && npm run chrome && npm run mochawesome:merge && npm run mochawesome:html"
+    "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json",
+    "mochawesome:html": "npx marge mochawesome.json",
+    "full:test": "npm run delete:reports && npm run chrome && npm run mochawesome:merge && npm run mochawesome:html"
   },
   "keywords": [
     "cypress",
@@ -27,6 +27,8 @@
   "license": "ISC",
   "devDependencies": {
     "@cypress-audit/lighthouse": "^1.4.2",
+    "@percy/cli": "^1.27.7",
+    "@percy/cypress": "^3.1.2",
     "cypress": "^9.5.1",
     "cypress-dark": "^1.8.3",
     "cypress-file-upload": "^5.0.8",
@@ -35,5 +37,8 @@
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
     "mochawesome-report-generator": "^6.2.0"
+  },
+  "dependencies": {
+    "cypress-plugin-snapshots": "^1.4.4"
   }
 }
